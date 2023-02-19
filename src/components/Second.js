@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import First from "./components/First";
-// import Second from "./components/Second";
-// import Third from "./components/Third";
-import "./App.css";
 
-function App() {
-  const URL =
-    "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-EB1ADCDD-29A8-47B5-BEAC-91E9725AD56E";
-
+function Second() {
   const [localArray, setLocalArray] = useState([]);
   const [local, setLocal] = useState(null);
   const [time, setTime] = useState(null);
@@ -56,25 +49,14 @@ function App() {
     fetchData();
   }, []);
   return (
-    <div className="app">
-      <h1>簡易氣象預報</h1>
-      <main>
-        {/* <First />
-        <Second />
-        <Third /> */}
-        <div>
-          <h2>Start Time : {time}</h2>
-          <h2>Local : {local}</h2>
-          <h2>最高溫度 : {temperatureHigh} °C</h2>
-          <h2>最低溫度 : {temperatureLow} °C</h2>
-          <h2>降雨機率 : {rain} %</h2>
-        </div>
-      </main>
-      <div className="center">
-        <button onClick={changeLocal}>按我換地區</button>
-      </div>
+    <div className="second">
+      <h2>Start Time : {time}</h2>
+      <h2>Local : {local}</h2>
+      <h2>最高溫度 : {temperatureHigh} °C</h2>
+      <h2>最低溫度 : {temperatureLow} °C</h2>
+      <h2>降雨機率 : {rain} %</h2>
     </div>
   );
 }
 
-export default App;
+export default Second;

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import First from "./components/First";
-// import Second from "./components/Second";
-// import Third from "./components/Third";
-import "./App.css";
 
-function App() {
+function Third() {
   const URL =
     "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-EB1ADCDD-29A8-47B5-BEAC-91E9725AD56E";
 
@@ -22,13 +18,13 @@ function App() {
     } else {
       setLocal(localArray[index].locationName);
       setTemperatureHigh(
-        localArray[index].weatherElement[4].time[1].parameter.parameterName
+        localArray[index].weatherElement[4].time[2].parameter.parameterName
       );
       setTemperatureLow(
-        localArray[index].weatherElement[2].time[1].parameter.parameterName
+        localArray[index].weatherElement[2].time[2].parameter.parameterName
       );
       setRain(
-        localArray[index].weatherElement[1].time[1].parameter.parameterName
+        localArray[index].weatherElement[1].time[2].parameter.parameterName
       );
       setIndex(index + 1);
     }
@@ -42,39 +38,28 @@ function App() {
 
       setLocalArray(data.location);
       setLocal(data.location[index].locationName);
-      setTime(data.location[index].weatherElement[0].time[1].startTime);
+      setTime(data.location[index].weatherElement[0].time[2].startTime);
       setRain(
-        data.location[index].weatherElement[1].time[1].parameter.parameterName
+        data.location[index].weatherElement[1].time[2].parameter.parameterName
       );
       setTemperatureHigh(
-        data.location[index].weatherElement[4].time[1].parameter.parameterName
+        data.location[index].weatherElement[4].time[2].parameter.parameterName
       );
       setTemperatureLow(
-        data.location[index].weatherElement[2].time[1].parameter.parameterName
+        data.location[index].weatherElement[2].time[2].parameter.parameterName
       );
     };
     fetchData();
   }, []);
   return (
-    <div className="app">
-      <h1>簡易氣象預報</h1>
-      <main>
-        {/* <First />
-        <Second />
-        <Third /> */}
-        <div>
-          <h2>Start Time : {time}</h2>
-          <h2>Local : {local}</h2>
-          <h2>最高溫度 : {temperatureHigh} °C</h2>
-          <h2>最低溫度 : {temperatureLow} °C</h2>
-          <h2>降雨機率 : {rain} %</h2>
-        </div>
-      </main>
-      <div className="center">
-        <button onClick={changeLocal}>按我換地區</button>
-      </div>
+    <div className="third">
+      <h2>Start Time : {time}</h2>
+      <h2>Local : {local}</h2>
+      <h2>最高溫度 : {temperatureHigh} °C</h2>
+      <h2>最低溫度 : {temperatureLow} °C</h2>
+      <h2>降雨機率 : {rain} %</h2>
     </div>
   );
 }
 
-export default App;
+export default Third;
