@@ -34,8 +34,7 @@ function App() {
   return (
     <div className="app">
       <h1>簡易氣象預報</h1>
-      <div className="center">
-        {" "}
+      <div className="center ">
         <select
           name="area"
           className="area"
@@ -70,7 +69,6 @@ function App() {
           <option value="連江縣">連江縣</option>
         </select>
       </div>
-
       <main>
         {searchLocal && (
           <>

@@ -15,33 +15,32 @@ h1 {
 .app {
   background-image: url(./images/img2.jpg);
   background-size: 100%;
-  height: 100vh;
+  max-width: 100%;
+  min-height: 100vh;
 }
+
 h2 {
   padding: 1rem;
 }
 main {
+  /* max-width: 100%; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-.first {
-  width: 400px;
-  height: 350px;
-  background: blue;
+.card {
+  width: 22%;
+  height: 25%;
   margin: 2rem;
+}
+.first {
+  background: blue;
 }
 .second {
-  width: 400px;
-  height: 350px;
   background: red;
-  margin: 2rem;
 }
 .third {
-  width: 400px;
-  height: 350px;
   background: pink;
-  margin: 2rem;
 }
 .area {
   font-size: 1.5rem;
@@ -51,4 +50,16 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1062px) {
+  main {
+    display: block;
+  }
+  .card {
+    margin: 2rem auto;
+    font-size: 1.5rem;
+    width: 80%;
+    height: 30%;
+  }
 }

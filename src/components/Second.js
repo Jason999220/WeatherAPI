@@ -26,7 +26,7 @@ function Second(props) {
     });
   }, [local]);
   return (
-    <div className="second">
+    <div className="second card">
       <h2>
         Start Time : <br />
         {time}
