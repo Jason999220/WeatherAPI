@@ -1,31 +1,30 @@
 import React, { useState, useEffect } from "react";
 
 function Third(props) {
-  const { index, local, URL } = props;
-  const [localArray, setLocalArray] = useState([]);
+  const { local, localArray } = props;
   const [time, setTime] = useState(null);
   const [rain, setRain] = useState(null);
   const [temperatureHigh, setTemperatureHigh] = useState(null);
   const [temperatureLow, setTemperatureLow] = useState(null);
   useEffect(() => {
-    const fetchData = async () => {
-      let response = await fetch(URL);
-      let Json = await response.json();
-      let data = Json.records;
-      setLocalArray(data.location);
-      setTime(data.location[index].weatherElement[0].time[2].startTime);
-      setRain(
-        data.location[index].weatherElement[1].time[2].parameter.parameterName
-      );
-      setTemperatureHigh(
-        data.location[index].weatherElement[4].time[2].parameter.parameterName
-      );
-      setTemperatureLow(
-        data.location[index].weatherElement[2].time[2].parameter.parameterName
-      );
-    };
-    fetchData();
-  }, [index]);
+    localArray.map((item) => {
+      if (item.locationName === local) {
+        // item.[所要的資訊].[3種時間].parameter.parameterName
+        // 開始時間
+        setTime(item.weatherElement[0].time[2].startTime);
+        // 最高氣溫
+        setTemperatureHigh(
+          item.weatherElement[4].time[2].parameter.parameterName
+        );
+        // 最低氣溫
+        setTemperatureLow(
+          item.weatherElement[2].time[2].parameter.parameterName
+        );
+        // 降雨機率
+        setRain(item.weatherElement[1].time[2].parameter.parameterName);
+      }
+    });
+  }, [local]);
   return (
     <div className="third">
       <h2>
