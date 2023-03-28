@@ -3,11 +3,9 @@ import First from "./components/First";
 import Second from "./components/Second";
 import Third from "./components/Third";
 import "./App.css";
-
 // 將index與陣列傳遞陣列
 function App() {
-  const URL =
-    "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-EB1ADCDD-29A8-47B5-BEAC-91E9725AD56E";
+  const URL = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${process.env.MY_OPENDATAAPI_CODE}`;
   const [localArray, setLocalArray] = useState([]);
   const [index, setIndex] = useState(0);
   const [local, setLocal] = useState(null);

@@ -1,7 +1,5 @@
 # Create a weather API
 
-## opendata API 授權碼 => CWB-EB1ADCDD-29A8-47B5-BEAC-91E9725AD56E
-
 ## 說明欄
 
     T溫度
